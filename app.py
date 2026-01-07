@@ -32,7 +32,13 @@ st.set_page_config(
 # ==============================================================================
 
 def load_css():
-    """Load external CSS file for styling."""
+    """
+    Load external CSS file for styling.
+    
+    Loads the style.css file from the assets directory and injects it
+    into the Streamlit app using markdown with unsafe_allow_html.
+    This approach keeps styling separated from application logic.
+    """
     css_file = Path(__file__).parent / "assets" / "style.css"
     
     with open(css_file) as f:
