@@ -8,6 +8,23 @@ Made in Czech Republic by Michal Matějček
 
 This application uses the Stable Diffusion v1.5 model to generate images based on text prompts. After the initial model download, the entire system runs offline without requiring an internet connection. The interface features a modern dark theme with smooth animations and intuitive controls.
 
+## Screenshots
+
+### Main Interface
+Clean, modern interface with animated gradient background:
+
+![Main Interface](screenshots/1-main-interface.png)
+
+### Generation Process
+Real-time feedback during image generation:
+
+![Generating](screenshots/2-generating.png)
+
+### Generated Result
+High-quality AI-generated images with download option:
+
+![Generated Image](screenshots/3-result.png)
+
 ## What It Does
 
 The application takes a text description (like "mountain landscape at sunset") and generates a corresponding image. You can adjust the quality and how closely the AI follows your description. Generation typically takes 30-60 seconds on a CPU.
