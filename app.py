@@ -120,18 +120,18 @@ def main():
     # -------------------------------------------------------------------------
     # Load AI Model (only once, at the start)
     # -------------------------------------------------------------------------
-    with st.spinner("🧠 Loading AI model..."):
+    with st.spinner("Loading AI model..."):
         pipe = load_model()
     
     if pipe is None:
-        st.error("❌ Failed to load model. Please check your installation.")
+        st.error("Failed to load model. Please check your installation")
         st.stop()
     
     # -------------------------------------------------------------------------
     # Hero Section
     # -------------------------------------------------------------------------
     st.markdown(
-        '<h1 class="hero-title">✨ CREATIVE AI STUDIO</h1>',
+        '<h1 class="hero-title">CREATIVE AI STUDIO</h1>',
         unsafe_allow_html=True
     )
     st.markdown(
@@ -139,16 +139,16 @@ def main():
         unsafe_allow_html=True
     )
     st.markdown(
-        '<p class="hero-flag">🇨🇿 Made in Czech Republic | Michal Matějček</p>',
+        '<p class="hero-flag">Made in Czech Republic | Michal Matějček</p>',
         unsafe_allow_html=True
     )
     
-    st.success("✅ Model loaded and ready to create!")
+    st.success("Model loaded and ready to create")
     
     # -------------------------------------------------------------------------
     # Input Section
     # -------------------------------------------------------------------------
-    st.markdown("### 🎯 Describe Your Image")
+    st.markdown("### Describe Your Image")
     
     prompt = st.text_input(
         "",
@@ -160,7 +160,7 @@ def main():
     # -------------------------------------------------------------------------
     # Advanced Settings
     # -------------------------------------------------------------------------
-    with st.expander("⚙️ Advanced Settings"):
+    with st.expander("Advanced Settings"):
         col1, col2 = st.columns(2)
         
         with col1:
@@ -187,26 +187,26 @@ def main():
     # Generate Button
     # -------------------------------------------------------------------------
     st.markdown("<br>", unsafe_allow_html=True)
-    generate_btn = st.button("🎨 GENERATE IMAGE")
+    generate_btn = st.button("GENERATE IMAGE")
     
     # -------------------------------------------------------------------------
     # Generation Logic
     # -------------------------------------------------------------------------
     if generate_btn:
         if not prompt:
-            st.warning("⚠️ Please enter an image description!")
+            st.warning("Please enter an image description")
         else:
             st.markdown("---")
             
             # Show progress
             progress_text = st.empty()
             progress_text.markdown(
-                '<p class="progress-title">🎨 Creating your masterpiece...</p>',
+                '<p class="progress-title">Creating your image...</p>',
                 unsafe_allow_html=True
             )
             
             # Generate the image
-            with st.spinner("⏳ Generating... (this may take 30-60 seconds)"):
+            with st.spinner("Generating... (this may take 30-60 seconds)"):
                 start_time = time.time()
                 
                 image = generate_image(
@@ -228,9 +228,9 @@ def main():
                     st.markdown(
                         f"""
                         <div style="text-align: center; margin: 2rem 0;">
-                            <span class="stats-badge">⏱️ {generation_time:.1f}s</span>
-                            <span class="stats-badge">🎯 {num_steps} steps</span>
-                            <span class="stats-badge">💪 Strength {guidance}</span>
+                            <span class="stats-badge">{generation_time:.1f}s</span>
+                            <span class="stats-badge">{num_steps} steps</span>
+                            <span class="stats-badge">Strength {guidance}</span>
                         </div>
                         """,
                         unsafe_allow_html=True
@@ -253,19 +253,19 @@ def main():
                     byte_im = buf.getvalue()
                     
                     st.download_button(
-                        label="💾 DOWNLOAD IMAGE",
+                        label="DOWNLOAD IMAGE",
                         data=byte_im,
                         file_name=f"ai_image_{prompt[:30].replace(' ', '_')}.png",
                         mime="image/png",
                         use_container_width=True
                     )
             else:
-                st.error("❌ Generation failed. Please try again.")
+                st.error("Generation failed. Please try again")
     
     # -------------------------------------------------------------------------
     # Example Prompts
     # -------------------------------------------------------------------------
-    with st.expander("💡 Example Prompts (click to copy)"):
+    with st.expander("Example Prompts"):
         examples = [
             "Mountain landscape at dusk with reflection in lake, photorealistic",
             "Futuristic city with flying cars, cyberpunk style, neon lights",
@@ -285,7 +285,7 @@ def main():
     # Footer
     # -------------------------------------------------------------------------
     st.markdown(
-        '<div class="footer-text">🚀 Powered by Stable Diffusion v1.5 | '
+        '<div class="footer-text">Powered by Stable Diffusion v1.5 | '
         'Running 100% offline on your Mac</div>',
         unsafe_allow_html=True
     )
